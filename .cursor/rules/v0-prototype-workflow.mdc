@@ -1,0 +1,16 @@
+---
+alwaysApply: true
+---
+
+---
+description: V0 prototype workflow for casino landing page
+globs:
+alwaysApply: true
+---
+
+# V0 Prototype
+
+- Primary chat: casino-landing-page-nStHzGqgObC
+- Use the v0 MCP tools to fetch prototype code and chat history
+- NEVER copy v0 code verbatim — adapt to our project architecture
+- When implementing from prototype, also ask for a screenshot for visual reference
