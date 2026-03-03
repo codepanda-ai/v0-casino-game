@@ -1,15 +1,13 @@
-import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
+import type { Metadata, Viewport } from 'next'
+import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' })
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: 'Luxe Casino - Play & Win',
+  description: 'Experience the thrill of premium online casino games. Slots, Roulette, and Blackjack await.',
   icons: {
     icon: [
       {
@@ -29,6 +27,10 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport: Viewport = {
+  themeColor: '#1a1a2e',
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -36,9 +38,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased">
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
         {children}
-        <Analytics />
       </body>
     </html>
   )
