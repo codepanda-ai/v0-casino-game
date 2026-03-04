@@ -19,7 +19,7 @@ const games = [
     name: "Roulette",
     tagline: "Place your bets, feel the rush",
     icon: Target,
-    href: null,
+    href: "/roulette",
     accentClass: "group-hover:shadow-[0_0_40px_rgba(220,60,60,0.3)]",
     borderHover: "group-hover:border-chart-2/60",
     iconColor: "text-chart-2",
