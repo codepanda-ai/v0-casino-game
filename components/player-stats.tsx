@@ -1,6 +1,6 @@
 "use client"
 
-import { Gamepad2, TrendingUp, Trophy, DollarSign } from "lucide-react"
+import { Gamepad2, TrendingUp, Trophy, DollarSign, Flame, CalendarCheck } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Bar, BarChart, ResponsiveContainer } from "recharts"
 
@@ -84,6 +84,44 @@ export function PlayerStats() {
               </Card>
             )
           })}
+        </div>
+
+        {/* Streaks */}
+        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          <Card className="border-border/50 bg-card">
+            <CardContent className="flex items-center gap-4 pt-0">
+              <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-chart-2/10">
+                <Flame className="size-5 text-chart-2" />
+              </div>
+              <div className="flex-1">
+                <p className="text-xs font-medium text-muted-foreground">Current Streak</p>
+                <p className="text-2xl font-bold text-foreground">5 days</p>
+              </div>
+              <div className="flex gap-1">
+                {Array.from({ length: 7 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className={`size-2.5 rounded-full ${i < 5 ? "bg-chart-2" : "bg-border"}`}
+                  />
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border/50 bg-card">
+            <CardContent className="flex items-center gap-4 pt-0">
+              <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+                <CalendarCheck className="size-5 text-primary" />
+              </div>
+              <div className="flex-1">
+                <p className="text-xs font-medium text-muted-foreground">Longest Streak</p>
+                <p className="text-2xl font-bold text-primary">12 days</p>
+              </div>
+              <div className="rounded-md bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary">
+                Personal Best
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Daily performance chart */}
