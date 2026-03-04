@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Dice1, Target, Spade } from "lucide-react"
+import { Dice1, Target, Spade, ShieldAlert } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const games = [
@@ -40,6 +40,22 @@ const games = [
 export function GameSelection() {
   return (
     <section id="games" className="mx-auto max-w-7xl px-4 py-16 lg:px-8">
+      {/* Responsible gambling banner */}
+      <div className="mb-10 flex items-start gap-3 rounded-lg border border-primary/30 bg-primary/5 px-5 py-4 text-sm">
+        <ShieldAlert className="mt-0.5 size-5 shrink-0 text-primary" />
+        <p className="leading-relaxed text-muted-foreground">
+          <span className="font-semibold text-foreground">18+ only.</span> You must be at least 18 years of age and reside in a country where online gambling is legally permitted to play. Gamble responsibly &mdash; know your limits.{" "}
+          <a
+            href="https://www.begambleaware.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary underline underline-offset-2 hover:text-primary/80"
+          >
+            BeGambleAware.org
+          </a>
+        </p>
+      </div>
+
       <div className="mb-10 text-center">
         <h2 className="font-serif text-3xl font-bold tracking-tight text-foreground lg:text-4xl">
           Choose Your Game
