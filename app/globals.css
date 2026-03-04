@@ -94,3 +94,35 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Slot machine reel animations */
+@keyframes reel-spin {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+@keyframes reel-blur {
+  0%, 100% { filter: blur(0px); }
+  30%, 70%  { filter: blur(3px); }
+}
+
+@keyframes win-pulse {
+  0%, 100% { box-shadow: 0 0 20px 4px oklch(0.8 0.15 85 / 0.4); }
+  50%       { box-shadow: 0 0 60px 16px oklch(0.8 0.15 85 / 0.8); }
+}
+
+@keyframes win-glow-text {
+  0%, 100% { text-shadow: 0 0 10px oklch(0.8 0.15 85 / 0.6); }
+  50%       { text-shadow: 0 0 30px oklch(0.8 0.15 85 / 1), 0 0 60px oklch(0.8 0.15 85 / 0.6); }
+}
+
+@keyframes symbol-blur-in {
+  0%   { filter: blur(8px); opacity: 0.2; transform: translateY(-8px); }
+  100% { filter: blur(0);   opacity: 1;   transform: translateY(0); }
+}
+
+.animate-reel-blur        { animation: reel-blur 0.15s ease-in-out infinite; }
+.animate-win-pulse        { animation: win-pulse 1s ease-in-out infinite; }
+.animate-win-glow-text    { animation: win-glow-text 1s ease-in-out infinite; }
+.animate-symbol-blur-in   { animation: symbol-blur-in 0.35s ease-out forwards; }
+.spinning-reel            { animation: reel-blur 0.12s linear infinite; }

@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { Dice1, Target, Spade } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -8,6 +9,7 @@ const games = [
     name: "Slots",
     tagline: "Spin to win big jackpots",
     icon: Dice1,
+    href: "/slots",
     accentClass: "group-hover:shadow-[0_0_40px_rgba(200,170,60,0.3)]",
     borderHover: "group-hover:border-primary/60",
     iconColor: "text-primary",
@@ -17,6 +19,7 @@ const games = [
     name: "Roulette",
     tagline: "Place your bets, feel the rush",
     icon: Target,
+    href: null,
     accentClass: "group-hover:shadow-[0_0_40px_rgba(220,60,60,0.3)]",
     borderHover: "group-hover:border-chart-2/60",
     iconColor: "text-chart-2",
@@ -26,6 +29,7 @@ const games = [
     name: "Blackjack",
     tagline: "Beat the dealer, hit 21",
     icon: Spade,
+    href: null,
     accentClass: "group-hover:shadow-[0_0_40px_rgba(60,180,100,0.3)]",
     borderHover: "group-hover:border-chart-3/60",
     iconColor: "text-chart-3",
@@ -62,9 +66,15 @@ export function GameSelection() {
               <p className="mt-1.5 text-sm text-muted-foreground">
                 {game.tagline}
               </p>
-              <Button className={`mt-6 w-full font-semibold ${game.btnClass}`}>
-                Play Now
-              </Button>
+              {game.href ? (
+                <Button asChild className={`mt-6 w-full font-semibold ${game.btnClass}`}>
+                  <Link href={game.href}>Play Now</Link>
+                </Button>
+              ) : (
+                <Button disabled className={`mt-6 w-full font-semibold opacity-50 ${game.btnClass}`}>
+                  Coming Soon
+                </Button>
+              )}
             </div>
           )
         })}
